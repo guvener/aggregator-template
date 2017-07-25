@@ -22,5 +22,11 @@ Update your composer.json autoload to load from Aggregator namespace.
 Migrate database
 
 ``` bash
-php artisan migrate
+composer dumpautoload
+php artisan migrate:refresh
+```
+
+Routes
+```
+/channels/flickr/hashtag/dog
 ```

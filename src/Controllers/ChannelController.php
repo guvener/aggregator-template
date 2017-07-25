@@ -18,7 +18,6 @@ class ChannelController
         // Check if channel exists
         $channel = Channel::firstOrCreate(compact('source', 'type', 'parameter'));
         dispatch(new ChannelJob($channel));
-
         return $channel->posts->take(50);
     }
 
@@ -27,7 +26,6 @@ class ChannelController
         // Check if channel exists
         $channelIds = Channel::whereType($type)->whereParameter($parameter)->select('id')->get()->pluck('id')->values();
 
-        //
         $socialPosts = SocialPost::with(['channels' => function ($query) use ($channelIds) {
             $query->whereIn('channel_id', $channelIds);
         }])->get();

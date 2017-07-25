@@ -28,7 +28,14 @@ class SocialPostRepository
 
     public function save()
     {
-        $this->channel->posts()->saveMany($this->posts);
+        // check if already added
+        $channelPosts = $this->channel->posts->pluck('id');
+
+        $newPosts = $this->posts->reject(function ($item) use ($channelPosts) {
+            return $channelPosts->contains($item->id);
+        });
+
+        $this->channel->posts()->saveMany($newPosts);
 
         if (config('aggregator.pusher_enabled')) {
             $this->notifyPusher();
