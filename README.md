@@ -30,5 +30,5 @@ Routes
 ```
 /channels/flickr/hashtag/newyorkusa
 /channels/tumblr/hashtag/newyorkusa
-/channels/instagram/username/newyork
+/channels/instagram/user/newyork
 ```
