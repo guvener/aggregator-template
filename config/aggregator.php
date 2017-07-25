@@ -7,15 +7,17 @@ return [
     |  Social API Keys and services
     |
      */
-    'flickr_api_key' => '',
-    'tumblr_api_key' => '',
+    'flickr_api_key' => env('FLICKR_KEY'),
+    'tumblr_api_key' => env('TUMBLR_KEY'),
     'pusher' => [
-        'api_key' => '',
-        'secret' => '',
-        'app_id' => '',
+        'api_key' => env('PUSHER_KEY'),
+        'secret' => env('PUSHER_SECRET'),
+        'app_id' => env('PUSHER_APP_ID'),
     ],
-    'pusher_enabled' => false,
-
+    'pusher_enabled' => env('PUSHER_ENABLED', false),
+    /*
+    Available Channel Types
+     */
     'channels' => [
         'flickr' => ['hashtag'],
         'tumblr' => ['hashtag'],
