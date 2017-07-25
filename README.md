@@ -28,5 +28,7 @@ php artisan migrate:refresh
 
 Routes
 ```
-/channels/flickr/hashtag/dog
+/channels/flickr/hashtag/newyorkusa
+/channels/tumblr/hashtag/newyorkusa
+/channels/instagram/username/newyork
 ```
